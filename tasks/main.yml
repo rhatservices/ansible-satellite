@@ -5,7 +5,7 @@
     file: ../secrets/vault.yml
 
 - name: "Publish a content view and promote that version to DEV"
-  theforeman.katello_content_view_version:
+  theforeman.foreman.katello_content_view_version:
     username: "{{ ansible_satellite_username }}"
     password: "{{ ansible_satellte_password }}"
     server_url: "https://satellite.tower.local"
@@ -18,7 +18,7 @@
 
 
 - name: "Promote current DEV version to PROD"
-  theforeman.katello_content_view_version:
+  theforeman.foreman.katello_content_view_version:
     username: "{{ ansible_satellite_username}}"
     password: "{{ ansible_satellite_password }}"
     server_url: "https://satellite.tower.local"
