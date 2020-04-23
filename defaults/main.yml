@@ -1,0 +1,6 @@
+---
+# defaults file for ansible-satellite/
+ansible_satellite_promote_dev: false
+ansible_satellite_promote_prod: false
+ansible_satellite_username: "admin"
+ansible_satellite_password: ""

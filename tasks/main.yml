@@ -1,0 +1,30 @@
+---
+# tasks file for ansible-satellite/
+- name: include encrypted variables
+  include_vars:
+    file: ../secrets/vault.yml
+
+- name: "Publish a content view and promote that version to DEV"
+  theforeman.katello_content_view_version:
+    username: "{{ ansible_satellite_username }}"
+    password: "{{ ansible_satellte_password }}"
+    server_url: "https://satellite.tower.local"
+    content_view: "DEV"
+    organization: "lab"
+    lifecycle_environments:
+      - Library
+      - DEV
+  when: ansible_satellite_promote_dev|bool
+
+
+- name: "Publish a content view and promote that version to PROD"
+  theforeman.katello_content_view_version:
+    username: "{{ ansible_satellite_username}}"
+    password: "{{ ansible_satellite_password }}"
+    server_url: "https://satellite.tower.local"
+    content_view: "DEV"
+    organization: "lab"
+    lifecycle_environments:
+      - Library
+      - DEV
+  when: ansible_satellite_promote_prod|bool
