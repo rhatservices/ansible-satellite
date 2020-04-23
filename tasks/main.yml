@@ -17,14 +17,14 @@
   when: ansible_satellite_promote_dev|bool
 
 
-- name: "Publish a content view and promote that version to PROD"
+- name: "Promote current DEV version to PROD"
   theforeman.katello_content_view_version:
     username: "{{ ansible_satellite_username}}"
     password: "{{ ansible_satellite_password }}"
     server_url: "https://satellite.tower.local"
     content_view: "DEV"
     organization: "lab"
+    current_lifecycle_environment: DEV
     lifecycle_environments:
-      - Library
-      - DEV
+      - PROD
   when: ansible_satellite_promote_prod|bool
