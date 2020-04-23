@@ -5,7 +5,7 @@
     password: "{{ ansible_satellite_password }}"
     server_url: "https://satellite.tower.local"
     validate_certs: false
-    content_view: "DEV"
+    content_view: "RHEL 7"
     organization: "lab"
     lifecycle_environments:
       - Library
@@ -19,7 +19,7 @@
     password: "{{ ansible_satellite_password }}"
     server_url: "https://satellite.tower.local"
     validate_certs: false
-    content_view: "DEV"
+    content_view: "RHEL 7"
     organization: "lab"
     current_lifecycle_environment: DEV
     lifecycle_environments:
