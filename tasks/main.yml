@@ -17,6 +17,7 @@
     username: "{{ ansible_satellite_username}}"
     password: "{{ ansible_satellite_password }}"
     server_url: "https://satellite.tower.local"
+    verify_ssl: False
     content_view: "DEV"
     organization: "lab"
     current_lifecycle_environment: DEV
