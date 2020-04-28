@@ -1,0 +1,10 @@
+- name: Update the DEV Satellite content view
+  hosts: localhost
+  pre_tasks:
+    - name: include encrypted vars
+      include_vars:
+        file: secrets/vault.yml
+  roles:
+    - role: satellite
+      vars:
+        ansible_satellite_promote_dev: true

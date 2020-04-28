@@ -1,0 +1,24 @@
+- name: Publish DEV patches to prod
+  hosts: localhost
+  pre_tasks:
+    - name: include encrypted vars
+      include_vars:
+        file: secrets/vault.yml
+  roles:
+    - role: satellite
+      vars:
+        ansible_satellite_promote_prod: true
+
+- name: Update PROD nodes
+  hosts: PROD
+  tasks:
+    - name: upgrade all packages with yum
+      yum:
+        name: '*'
+        state: latest
+      register: os_upgrade_done
+
+    - name: reboot node after upgrade
+      reboot:
+      # disabled for the demo
+      # when: os_upgrade_done.changed
