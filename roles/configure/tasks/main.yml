@@ -1,6 +1,6 @@
 ---
 - name: create a new organization
-  foreman_organization:
+  theforeman.foreman.foreman_organization:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
