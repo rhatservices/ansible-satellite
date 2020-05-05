@@ -1,0 +1,9 @@
+---
+- name: create a new organization
+  foreman_organization:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    name: "{{ satellite_organization }}"
+    state: present
+    validate_certs: false

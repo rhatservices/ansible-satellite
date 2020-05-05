@@ -1,0 +1,9 @@
+- name: Configure Satellite
+  hosts: localhost
+  pre_tasks:
+    - name: include encrypted vars
+      include_vars:
+        file: secrets/vault.yml
+  roles:
+    - role: configure
+      vars:
