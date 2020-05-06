@@ -9,4 +9,4 @@
           - yaml
   roles:
     - role: configure
-      vars:
+    - role: sap_content

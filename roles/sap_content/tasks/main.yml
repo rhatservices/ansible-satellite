@@ -1,0 +1,12 @@
+---
+- name: "Enable RHEL 7.6 SAP Solutions repositories"
+  katello_repository_set:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    label: rhel-7-server-e4s-rpms
+    repositories:
+    - releasever: "7.6"
+      basearch: "x86_64"
+    state: enabled
