@@ -68,3 +68,27 @@
       - 'RHEL for SAP HANA - Update Services for SAP Solutions'
       - 'RHEL for SAP - Update Services for SAP Solutions'
     state: present
+
+- name: "Create or update RHEL Server content view"
+  katello_content_view:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    name: "CV: RHEL 7.6 Server"
+    repositories:
+      - name: 'Red Hat Enterprise Linux 7 Server - Update Services for SAP Solutions RPMs x86_64 7.6'
+        product: 'Red Hat Enterprise Linux Server - Update Services for SAP Solutions'
+
+- name: "Create or update RHEL HA content view"
+  katello_content_view:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    name: "CV: RHEL 7.6 High Availability"
+    repositories:
+      - name: 'Red Hat Enterprise Linux High Availability for RHEL 7 Server Update Services for SAP Solutions RPMs x86_64 7.6'
+        product: 'Red Hat Enterprise Linux High Availability - Update Services for SAP Solutions'
