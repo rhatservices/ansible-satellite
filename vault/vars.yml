@@ -1,0 +1,1 @@
+satellite_password: "{{ vault_satellite_password }}"
