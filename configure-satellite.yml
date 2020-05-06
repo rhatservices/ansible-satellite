@@ -8,5 +8,4 @@
           - yml
           - yaml
   roles:
-    - role: configure
-    - role: sap_content
+    - role: sap_satellite_configure
