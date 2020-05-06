@@ -13,6 +13,7 @@
     username: "admin"
     password: "changeme"
     server_url: "https://foreman.example.com"
+    validate_certs: false
     name: "{{ satellite_location }}"
     organizations:
       - "{{ satellite_organization }}"
@@ -24,5 +25,6 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     organization: "{{ satellite_organization }}"
+    validate_certs: false
     state: present
     manifest_path: "{{ satellite_manifest_path }}"
