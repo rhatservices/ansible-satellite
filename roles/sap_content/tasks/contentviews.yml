@@ -9,6 +9,19 @@
     repositories:
       - name: 'Red Hat Enterprise Linux 7 Server - Update Services for SAP Solutions RPMs x86_64 7.6'
         product: 'Red Hat Enterprise Linux Server - Update Services for SAP Solutions'
+  register: cv_rhelserver
+
+- name: "Publish an initial version of the RHEL Server content view"
+  katello_content_view_version:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    content_view: "CV: RHEL Server"
+    lifecycle_environments:
+      - Library
+  when: cv_rhelserver.changed
 
 - name: "Create or update RHEL High Availability content view"
   katello_content_view:

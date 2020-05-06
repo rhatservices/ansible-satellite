@@ -1,0 +1,19 @@
+---
+- name: "Create katello client activation key"
+  katello_activation_key:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    name: "SAP Application Clients"
+    lifecycle_environment: "TechLab"
+    content_view: 'CCV: SAP Applications'
+    subscriptions:
+      - name: "{{ satellite_subscription_name }}"
+    content_overrides:
+        - label: rhel-7-server-optional-rpms
+          override: enabled
+    auto_attach: False
+    release_version: 7Server
+    service_level: Standard

@@ -1,5 +1,4 @@
 ---
----
 - import_tasks: repositories.yml
 - import_tasks: contentviews.yml
 - import_tasks: lifecycle.yml
