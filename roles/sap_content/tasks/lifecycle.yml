@@ -1,0 +1,65 @@
+---
+- name: "Add a TechLab lifecycle environment"
+  katello_lifecycle_environment:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    name: "TechLab"
+    label: "techlab"
+    prior: "Library"
+    description: "The TechLab environment"
+    state: "present"
+
+- name: "Add a Sandbox lifecycle environment"
+  katello_lifecycle_environment:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    name: "Sandbox"
+    label: "Sandbox"
+    prior: "TechLab"
+    description: "The Sandbox environment"
+    state: "present"
+
+- name: "Add a DEV lifecycle environment"
+  katello_lifecycle_environment:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    name: "DEV"
+    label: "dev"
+    prior: "Sandbox"
+    description: "The DEV environment"
+    state: "present"
+
+- name: "Add a UAT lifecycle environment"
+  katello_lifecycle_environment:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    name: "UAT"
+    label: "uat"
+    prior: "DEV"
+    description: "The UAT environment"
+    state: "present"
+
+- name: "Add a PROD lifecycle environment"
+  katello_lifecycle_environment:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    name: "PROD"
+    label: "prod"
+    prior: "UAT"
+    description: "The PROD environment"
+    state: "present"
