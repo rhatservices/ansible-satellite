@@ -1,6 +1,6 @@
 ---
 - name: "Enable RHEL 7.6 SAP Solutions repositories"
-  katello_repository_set:
+  theforeman.foreman.katello_repository_set:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
