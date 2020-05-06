@@ -65,6 +65,6 @@
     products:
       - 'Red Hat Enterprise Linux Server - Update Services for SAP Solutions'
       - 'Red Hat Enterprise Linux High Availability - Update Services for SAP Solutions'
-      - 'RHEL for SAP HANA - Update Services for SAP Solutions '
+      - 'RHEL for SAP HANA - Update Services for SAP Solutions'
       - 'RHEL for SAP - Update Services for SAP Solutions'
     state: present
