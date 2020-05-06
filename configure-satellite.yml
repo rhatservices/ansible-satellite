@@ -3,7 +3,10 @@
   pre_tasks:
     - name: include encrypted vars
       include_vars:
-        file: vault/secrets.yml
+        dir: vault
+        extensions:
+          - yml
+          - yaml
   roles:
     - role: configure
       vars:
