@@ -22,7 +22,7 @@
     label: rhel-ha-for-rhel-7-server-e4s-rpms
     repositories:
     - releasever: "{{ sap_satellite_configure_rhel_release }}"
-      basearch: "{{ sat_content_architecture }}"
+      basearch: "{{ sap_satellite_configure_architecture }}"
     state: enabled
 
 - name: "Enable RHEL for SAP for RHEL Server Update Services for SAP Solutions RPMs repository set "
