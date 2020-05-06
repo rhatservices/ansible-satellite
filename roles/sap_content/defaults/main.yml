@@ -1,3 +1,8 @@
 ---
 # defaults file for sap_content
-repositories: ""
+sap_content_rhel_release: "7.6"
+sap_content_architecture: "x86_64"
+sap_content_sat_username: "admin"
+sap_content_sat_password: ""
+sap_content_sat_url: "https://localhost"
+sap_content_sat_organization: "Default"

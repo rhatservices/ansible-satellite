@@ -1,23 +1,23 @@
 - name: "Create or update RHEL Server content view"
   katello_content_view:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "CV: RHEL Server"
     repositories:
-      - name: 'Red Hat Enterprise Linux 7 Server - Update Services for SAP Solutions RPMs x86_64 7.6'
+      - name: 'Red Hat Enterprise Linux 7 Server - Update Services for SAP Solutions RPMs {{ sat_content_architecture }} {{ sap_content_rhel_release }}'
         product: 'Red Hat Enterprise Linux Server - Update Services for SAP Solutions'
   register: cv_rhelserver
 
 - name: "Publish an initial version of the RHEL Server content view"
   katello_content_view_version:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     content_view: "CV: RHEL Server"
     lifecycle_environments:
       - Library
@@ -25,24 +25,24 @@
 
 - name: "Create or update RHEL High Availability content view"
   katello_content_view:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "CV: RHEL High Availability"
     repositories:
-      - name: 'Red Hat Enterprise Linux High Availability for RHEL 7 Server Update Services for SAP Solutions RPMs x86_64 7.6'
+      - name: 'Red Hat Enterprise Linux High Availability for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sat_content_architecture }} {{ sap_content_rhel_release }}'
         product: 'Red Hat Enterprise Linux High Availability - Update Services for SAP Solutions'
   register: cv_rhelha
 
 - name: "Publish an initial version of the RHEL High Availability content view"
   katello_content_view_version:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     content_view: "CV: RHEL High Availability"
     lifecycle_environments:
       - Library
@@ -50,24 +50,24 @@
 
 - name: "Create or update RHEL for SAP Update Services content view"
   katello_content_view:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "CV: RHEL for SAP Applications"
     repositories:
-      - name: 'RHEL for SAP for RHEL 7 Server Update Services for SAP Solutions RPMs x86_64 7.6'
+      - name: 'RHEL for SAP for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sat_content_architecture }} {{ sap_content_rhel_release }}'
         product: 'RHEL for SAP - Update Services for SAP Solutions'
   register: cv_rhelsapapp
 
 - name: "Publish an initial version of the RHEL for SAP Applications content view"
   katello_content_view_version:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     content_view: "CV: RHEL for SAP Applications"
     lifecycle_environments:
       - Library
@@ -75,24 +75,24 @@
 
 - name: "Create or update RHEL for SAP HANA Update Services content view "
   katello_content_view:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "CV: RHEL for SAP HANA"
     repositories:
-      - name: 'RHEL for SAP HANA for RHEL 7 Server Update Services for SAP Solutions RPMs x86_64 7.6'
+      - name: 'RHEL for SAP HANA for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sat_content_architecture }} {{ sap_content_rhel_release }}'
         product: 'RHEL for SAP HANA - Update Services for SAP Solutions'
   register: cv_rhelsaphana
 
 - name: "Publish an initial version of the RHEL for SAP HANA content view"
   katello_content_view_version:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     content_view: "CV: RHEL for SAP HANA"
     lifecycle_environments:
       - Library
@@ -100,11 +100,11 @@
 
 - name: "Create a composite content view for SAP Application hosts"
   katello_content_view:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "CCV: SAP Applications"
     composite: true
     auto_publish: true
@@ -119,11 +119,11 @@
 
 - name: "Publish an initial version of the SAP Applications composite content view"
   katello_content_view_version:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     content_view: "CCV: SAP Applications"
     lifecycle_environments:
       - Library
@@ -132,11 +132,11 @@
 
 - name: "Create a composite content view for SAP HANA hosts"
   katello_content_view:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "CCV: SAP HANA"
     composite: true
     auto_publish: true
@@ -151,11 +151,11 @@
 
 - name: "Publish an initial version of the SAP HANA composite content view"
   katello_content_view_version:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     content_view: "CCV: SAP HANA"
     lifecycle_environments:
       - Library

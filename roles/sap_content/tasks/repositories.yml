@@ -1,63 +1,63 @@
 ---
 - name: "Enable Update Services for SAP Solutions RPMs repository set"
   theforeman.foreman.katello_repository_set:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     label: rhel-7-server-e4s-rpms
     repositories:
-    - releasever: "7.6"
-      basearch: "x86_64"
+    - releasever: "{{ sap_content_rhel_release }}"
+      basearch: "{{ sat_content_architecture }}"
     state: enabled
 
 - name: "Enable Red Hat Enterprise Linux High Availability Update Services for SAP Solutions RPMs repository set"
   theforeman.foreman.katello_repository_set:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     label: rhel-ha-for-rhel-7-server-e4s-rpms
     repositories:
-    - releasever: "7.6"
-      basearch: "x86_64"
+    - releasever: "{{ sap_content_rhel_release }}"
+      basearch: "{{ sat_content_architecture }}"
     state: enabled
 
 - name: "Enable RHEL for SAP for RHEL Server Update Services for SAP Solutions RPMs repository set "
   theforeman.foreman.katello_repository_set:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     label: rhel-sap-for-rhel-7-server-e4s-rpms
     repositories:
-    - releasever: "7.6"
-      basearch: "x86_64"
+    - releasever: "{{ sap_content_rhel_release }}"
+      basearch: "{{ sat_content_architecture }}"
     state: enabled
 
 - name: "Enable RHEL for SAP HANA for RHEL Server Update Services for SAP Solutions RPMs repository set"
   theforeman.foreman.katello_repository_set:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     label: rhel-sap-hana-for-rhel-7-server-e4s-rpms
     repositories:
-    - releasever: "7.6"
-      basearch: "x86_64"
+    - releasever: "{{ sap_content_rhel_release }}"
+      basearch: "{{ sat_content_architecture }}"
     state: enabled
 
 - name: "Create or update weekly RHEL sync plan"
   katello_sync_plan:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "Weekly SAP RHEL Sync"
     interval: "weekly"
     enabled: false

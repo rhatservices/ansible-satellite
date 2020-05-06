@@ -1,22 +1,25 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+This role configures required SAP content for Satellite.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
-
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+sap_content_rhel_release: "7.6"
+sap_content_architecture: "x86_64"
+sap_content_sat_username: "admin"
+sap_content_sat_password: ""
+sap_content_sat_url: "https://localhost"
+sap_content_sat_organization: "Default"
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+- theforeman.foreman ansible collection
 
 Example Playbook
 ----------------
@@ -25,7 +28,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - role: sap_content
 
 License
 -------

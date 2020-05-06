@@ -1,11 +1,11 @@
 ---
 - name: "Add a TechLab lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "TechLab"
     label: "techlab"
     prior: "Library"
@@ -14,11 +14,11 @@
 
 - name: "Add a Sandbox lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "Sandbox"
     label: "Sandbox"
     prior: "TechLab"
@@ -27,11 +27,11 @@
 
 - name: "Add a DEV lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "DEV"
     label: "dev"
     prior: "Sandbox"
@@ -40,11 +40,11 @@
 
 - name: "Add a UAT lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "UAT"
     label: "uat"
     prior: "DEV"
@@ -53,11 +53,11 @@
 
 - name: "Add a PROD lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
+    username: "{{ sap_content_sat_username }}"
+    password: "{{ sap_content_sat_password }}"
+    server_url: "{{ sap_content_sat_url}}"
     validate_certs: false
-    organization: "{{ satellite_organization }}"
+    organization: "{{ sap_content_sat_organization }}"
     name: "PROD"
     label: "prod"
     prior: "UAT"
