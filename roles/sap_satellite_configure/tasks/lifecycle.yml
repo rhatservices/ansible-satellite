@@ -1,9 +1,9 @@
 ---
 - name: "Add a TechLab lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "TechLab"
@@ -14,9 +14,9 @@
 
 - name: "Add a Sandbox lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "Sandbox"
@@ -27,9 +27,9 @@
 
 - name: "Add a DEV lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "DEV"
@@ -40,9 +40,9 @@
 
 - name: "Add a UAT lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "UAT"
@@ -53,9 +53,9 @@
 
 - name: "Add a PROD lifecycle environment"
   katello_lifecycle_environment:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "PROD"

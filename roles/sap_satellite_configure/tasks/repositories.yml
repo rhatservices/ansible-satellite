@@ -1,9 +1,9 @@
 ---
 - name: "Enable Update Services for SAP Solutions RPMs repository set"
   theforeman.foreman.katello_repository_set:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     label: rhel-7-server-e4s-rpms
@@ -14,9 +14,9 @@
 
 - name: "Enable Red Hat Enterprise Linux High Availability Update Services for SAP Solutions RPMs repository set"
   theforeman.foreman.katello_repository_set:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     label: rhel-ha-for-rhel-7-server-e4s-rpms
@@ -27,9 +27,9 @@
 
 - name: "Enable RHEL for SAP for RHEL Server Update Services for SAP Solutions RPMs repository set "
   theforeman.foreman.katello_repository_set:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     label: rhel-sap-for-rhel-7-server-e4s-rpms
@@ -40,9 +40,9 @@
 
 - name: "Enable RHEL for SAP HANA for RHEL Server Update Services for SAP Solutions RPMs repository set"
   theforeman.foreman.katello_repository_set:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     label: rhel-sap-hana-for-rhel-7-server-e4s-rpms
@@ -53,9 +53,9 @@
 
 - name: "Create or update weekly RHEL sync plan"
   katello_sync_plan:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "Weekly SAP RHEL Sync"

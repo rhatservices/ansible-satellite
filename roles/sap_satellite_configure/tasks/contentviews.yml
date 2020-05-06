@@ -1,8 +1,8 @@
 - name: "Create or update RHEL Server content view"
   katello_content_view:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "CV: RHEL Server"
@@ -13,9 +13,9 @@
 
 - name: "Publish an initial version of the RHEL Server content view"
   katello_content_view_version:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     content_view: "CV: RHEL Server"
@@ -25,9 +25,9 @@
 
 - name: "Create or update RHEL High Availability content view"
   katello_content_view:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "CV: RHEL High Availability"
@@ -38,9 +38,9 @@
 
 - name: "Publish an initial version of the RHEL High Availability content view"
   katello_content_view_version:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     content_view: "CV: RHEL High Availability"
@@ -50,9 +50,9 @@
 
 - name: "Create or update RHEL for SAP Update Services content view"
   katello_content_view:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "CV: RHEL for SAP Applications"
@@ -63,9 +63,9 @@
 
 - name: "Publish an initial version of the RHEL for SAP Applications content view"
   katello_content_view_version:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     content_view: "CV: RHEL for SAP Applications"
@@ -75,9 +75,9 @@
 
 - name: "Create or update RHEL for SAP HANA Update Services content view "
   katello_content_view:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "CV: RHEL for SAP HANA"
@@ -88,9 +88,9 @@
 
 - name: "Publish an initial version of the RHEL for SAP HANA content view"
   katello_content_view_version:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     content_view: "CV: RHEL for SAP HANA"
@@ -100,9 +100,9 @@
 
 - name: "Create a composite content view for SAP Application hosts"
   katello_content_view:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "CCV: SAP Applications"
@@ -119,9 +119,9 @@
 
 - name: "Publish an initial version of the SAP Applications composite content view"
   katello_content_view_version:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     content_view: "CCV: SAP Applications"
@@ -132,9 +132,9 @@
 
 - name: "Create a composite content view for SAP HANA hosts"
   katello_content_view:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     name: "CCV: SAP HANA"
@@ -151,9 +151,9 @@
 
 - name: "Publish an initial version of the SAP HANA composite content view"
   katello_content_view_version:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
     content_view: "CCV: SAP HANA"

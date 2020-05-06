@@ -1,18 +1,18 @@
 ---
 - name: "Create a new organization"
   theforeman.foreman.foreman_organization:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     name: "{{ sap_content_sat_organization }}"
     state: present
     validate_certs: false
 
 - name: "Create a new location"
   foreman_location:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     name: "{{ sap_content_sat_location }}"
     organizations:
@@ -21,9 +21,9 @@
 
 - name: "Refresh manifest - this might fail, if yes upload manifest manually"
   katello_manifest:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     organization: "{{ sap_content_sat_organization }}"
     validate_certs: false
     state: refreshed

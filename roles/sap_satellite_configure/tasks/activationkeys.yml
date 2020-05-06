@@ -1,16 +1,16 @@
 ---
 - name: "Create activation key SAP Application clients"
   katello_activation_key:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
-    name: "SAP Clients"
+    name: "SAP Applications"
     lifecycle_environment: "TechLab"
     content_view: 'CCV: SAP Applications'
     subscriptions:
-      - name: "{{ sap_content_sat_subscription_name }}"
+      - name: "{{ satellite_subscription_name }}"
     content_overrides:
         - label: rhel-7-server-e4s-rpms
           override: enabled
@@ -24,12 +24,12 @@
 
 - name: "Create activation key SAP HANA clients"
   katello_activation_key:
-    username: "{{ sap_content_sat_username }}"
-    password: "{{ sap_content_sat_password }}"
-    server_url: "{{ sap_content_sat_url}}"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_content_sat_organization }}"
-    name: "SAP Clients"
+    name: "SAP HANA"
     lifecycle_environment: "TechLab"
     content_view: 'CCV: SAP HANA'
     subscriptions:
