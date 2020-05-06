@@ -1,5 +1,5 @@
 ---
-- name: create a new organization
+- name: "Create a new organization"
   theforeman.foreman.foreman_organization:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
@@ -7,3 +7,22 @@
     name: "{{ satellite_organization }}"
     state: present
     validate_certs: false
+
+- name: "Create a new location"
+  foreman_location:
+    username: "admin"
+    password: "changeme"
+    server_url: "https://foreman.example.com"
+    name: "{{ satellite_location }}"
+    organizations:
+      - "{{ satellite_organization }}"
+    state: present
+
+- name: "Import Manifest"
+  katello_manifest:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    organization: "{{ satellite_organization }}"
+    state: present
+    manifest_path: "{{ satellite_manifest_path }}"
