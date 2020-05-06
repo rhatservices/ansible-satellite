@@ -5,7 +5,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_content_sat_organization }}"
+    organization: "{{ sap_satellite_configure_sat_organization }}"
     name: "SAP Applications"
     lifecycle_environment: "TechLab"
     content_view: 'CCV: SAP Applications'
@@ -28,12 +28,12 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_content_sat_organization }}"
+    organization: "{{ sap_satellite_configure_sat_organization }}"
     name: "SAP HANA"
     lifecycle_environment: "TechLab"
     content_view: 'CCV: SAP HANA'
     subscriptions:
-      - name: "{{ sap_content_sat_subscription_name }}"
+      - name: "{{ sap_satellite_configure_sat_subscription_name }}"
     content_overrides:
         - label: rhel-7-server-e4s-rpms
           override: enabled

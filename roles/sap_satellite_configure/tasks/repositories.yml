@@ -5,11 +5,11 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_content_sat_organization }}"
+    organization: "{{ sap_satellite_configure_sat_organization }}"
     label: rhel-7-server-e4s-rpms
     repositories:
-    - releasever: "{{ sap_content_rhel_release }}"
-      basearch: "{{ sat_content_architecture }}"
+    - releasever: "{{ sap_satellite_configure_rhel_release }}"
+      basearch: "{{ sap_satellite_configure_architecture }}"
     state: enabled
 
 - name: "Enable Red Hat Enterprise Linux High Availability Update Services for SAP Solutions RPMs repository set"
@@ -18,10 +18,10 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_content_sat_organization }}"
+    organization: "{{ sap_satellite_configure_sat_organization }}"
     label: rhel-ha-for-rhel-7-server-e4s-rpms
     repositories:
-    - releasever: "{{ sap_content_rhel_release }}"
+    - releasever: "{{ sap_satellite_configure_rhel_release }}"
       basearch: "{{ sat_content_architecture }}"
     state: enabled
 
@@ -31,11 +31,11 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_content_sat_organization }}"
+    organization: "{{ sap_satellite_configure_sat_organization }}"
     label: rhel-sap-for-rhel-7-server-e4s-rpms
     repositories:
-    - releasever: "{{ sap_content_rhel_release }}"
-      basearch: "{{ sat_content_architecture }}"
+    - releasever: "{{ sap_satellite_configure_rhel_release }}"
+      basearch: "{{ sap_satellite_configure_architecture }}"
     state: enabled
 
 - name: "Enable RHEL for SAP HANA for RHEL Server Update Services for SAP Solutions RPMs repository set"
@@ -44,11 +44,11 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_content_sat_organization }}"
+    organization: "{{ sap_satellite_configure_sat_organization }}"
     label: rhel-sap-hana-for-rhel-7-server-e4s-rpms
     repositories:
-    - releasever: "{{ sap_content_rhel_release }}"
-      basearch: "{{ sat_content_architecture }}"
+    - releasever: "{{ sap_satellite_configure_rhel_release }}"
+      basearch: "{{ sap_satellite_configure_architecture }}"
     state: enabled
 
 - name: "Create or update weekly RHEL sync plan"
@@ -57,7 +57,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_content_sat_organization }}"
+    organization: "{{ sap_satellite_configure_sat_organization }}"
     name: "Weekly SAP RHEL Sync"
     interval: "weekly"
     enabled: false
