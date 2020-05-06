@@ -10,9 +10,9 @@
 
 - name: "Create a new location"
   foreman_location:
-    username: "admin"
-    password: "changeme"
-    server_url: "https://foreman.example.com"
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
     validate_certs: false
     name: "{{ satellite_location }}"
     organizations:
