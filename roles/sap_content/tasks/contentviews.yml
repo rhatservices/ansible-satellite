@@ -71,7 +71,7 @@
     content_view: "CV: RHEL for SAP Applications"
     lifecycle_environments:
       - Library
-  when: cv_rhelapp.changed
+  when: cv_rhelsapapp.changed
 
 - name: "Create or update RHEL for SAP HANA Update Services content view "
   katello_content_view:
