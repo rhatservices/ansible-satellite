@@ -127,6 +127,7 @@
     content_view: "CCV: SAP Applications"
     lifecycle_environments:
       - Library
+      - TechLab
   when: ccv_sapapp.changed
 
 - name: "Create a composite content view for SAP HANA hosts"
@@ -158,4 +159,5 @@
     content_view: "CCV: SAP HANA"
     lifecycle_environments:
       - Library
+      - TechLab
   when: ccv_saphana.changed
