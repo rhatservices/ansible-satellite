@@ -142,7 +142,7 @@
     server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ satellite_organization }}"
-    name: "CCV: SAP Applications"
+    name: "CCV: SAP HANA"
     composite: true
     auto_publish: true
     components:
