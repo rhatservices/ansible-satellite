@@ -5,6 +5,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
+    organization: "{{ satellite_organization }}"
     label: rhel-7-server-e4s-rpms
     repositories:
     - releasever: "7.6"
