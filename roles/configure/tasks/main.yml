@@ -1,32 +1,29 @@
 ---
-# - name: "Create a new organization"
-#   theforeman.foreman.foreman_organization:
-#     username: "{{ satellite_username }}"
-#     password: "{{ satellite_password }}"
-#     server_url: "{{ satellite_url}}"
-#     name: "{{ satellite_organization }}"
-#     state: present
-#     validate_certs: false
+- name: "Create a new organization"
+  theforeman.foreman.foreman_organization:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    name: "{{ satellite_organization }}"
+    state: present
+    validate_certs: false
 
-# - name: "Create a new location"
-#   foreman_location:
-#     username: "{{ satellite_username }}"
-#     password: "{{ satellite_password }}"
-#     server_url: "{{ satellite_url}}"
-#     validate_certs: false
-#     name: "{{ satellite_location }}"
-#     organizations:
-#       - "{{ satellite_organization }}"
-#     state: present
+- name: "Create a new location"
+  foreman_location:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    name: "{{ satellite_location }}"
+    organizations:
+      - "{{ satellite_organization }}"
+    state: present
 
-- command: ls -al /tmp
-
-- name: "Import Manifest"
+- name: "Refresh manifest - this might fail, if yes upload manifest manually"
   katello_manifest:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     organization: "{{ satellite_organization }}"
     validate_certs: false
-    state: present
-    manifest_path: "{{ satellite_manifest_path }}"
+    state: refreshed
