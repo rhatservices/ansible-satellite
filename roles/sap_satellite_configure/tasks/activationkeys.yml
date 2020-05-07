@@ -10,7 +10,7 @@
     lifecycle_environment: "TechLab"
     content_view: 'CCV: SAP Applications'
     subscriptions:
-      - name: "{{ sap_satellite_configure_subscription_name }}"
+      - name: "{{ sap_satellite_configure_sat_subscription_name }}"
     content_overrides:
         - label: rhel-7-server-e4s-rpms
           override: enabled
