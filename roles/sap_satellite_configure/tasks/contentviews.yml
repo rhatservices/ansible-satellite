@@ -7,7 +7,7 @@
     organization: "{{ sap_satellite_configure_sat_organization }}"
     name: "CV: RHEL Server"
     repositories:
-      - name: 'Red Hat Enterprise Linux 7 Server - Update Services for SAP Solutions RPMs {{ sat_content_architecture }} {{ sap_satellite_configure_rhel_release }}'
+      - name: 'Red Hat Enterprise Linux 7 Server - Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
         product: 'Red Hat Enterprise Linux Server - Update Services for SAP Solutions'
   register: cv_rhelserver
 
@@ -32,7 +32,7 @@
     organization: "{{ sap_satellite_configure_sat_organization }}"
     name: "CV: RHEL High Availability"
     repositories:
-      - name: 'Red Hat Enterprise Linux High Availability for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sat_content_architecture }} {{ sap_satellite_configure_rhel_release }}'
+      - name: 'Red Hat Enterprise Linux High Availability for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
         product: 'Red Hat Enterprise Linux High Availability - Update Services for SAP Solutions'
   register: cv_rhelha
 
@@ -57,7 +57,7 @@
     organization: "{{ sap_satellite_configure_sat_organization }}"
     name: "CV: RHEL for SAP Applications"
     repositories:
-      - name: 'RHEL for SAP for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sat_content_architecture }} {{ sap_satellite_configure_rhel_release }}'
+      - name: 'RHEL for SAP for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
         product: 'RHEL for SAP - Update Services for SAP Solutions'
   register: cv_rhelsapapp
 
@@ -82,7 +82,7 @@
     organization: "{{ sap_satellite_configure_sat_organization }}"
     name: "CV: RHEL for SAP HANA"
     repositories:
-      - name: 'RHEL for SAP HANA for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sat_content_architecture }} {{ sap_satellite_configure_rhel_release }}'
+      - name: 'RHEL for SAP HANA for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
         product: 'RHEL for SAP HANA - Update Services for SAP Solutions'
   register: cv_rhelsaphana
 
