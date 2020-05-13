@@ -1,0 +1,31 @@
+- name: Update CCV {{ satellite_ccv}} and all CVs
+  hosts: localhost
+  tasks:
+  - theforeman.foreman.foreman_search_facts:
+      username: "{{ satellite_username }}"
+      password: "{{ satellite_password }}"
+      server_url: "{{ satellite_url}}"
+      validate_certs: false
+      name: "{{ satellite_organization }}"
+      resource: content_views
+      search: label="{{ satellite_ccv}}"
+    register: result
+
+  - theforeman.foreman.katello_content_view_version:
+      username: "{{ satellite_username }}"
+      password: "{{ satellite_password }}"
+      server_url: "{{ satellite_url}}"
+      name: "{{ satellite_organization }}"
+      validate_certs: false
+      content_view: "{{item.content_view.name}}"
+      organization: "{{ satellite_organization }}"
+    loop: "{{ result.resources[0].components }}"
+
+  - theforeman.foreman.katello_content_view_version:
+      username: "{{ satellite_username }}"
+      password: "{{ satellite_password }}"
+      server_url: "{{ satellite_url}}"
+      organization: "{{ satellite_organization }}"
+      validate_certs: false
+      content_view: "{{ satellite_ccv }}"
+      lifecycle_environments: "{{ satellite_lifecycle_environments }}"
