@@ -107,7 +107,7 @@
     organization: "{{ sap_satellite_configure_sat_organization }}"
     name: "CCV: SAP Applications"
     composite: true
-    auto_publish: true
+    auto_publish: false
     components:
       - content_view: "CV: RHEL Server"
         latest: true
@@ -139,7 +139,7 @@
     organization: "{{ sap_satellite_configure_sat_organization }}"
     name: "CCV: SAP HANA"
     composite: true
-    auto_publish: true
+    auto_publish: false
     components:
       - content_view: "CV: RHEL Server"
         latest: true
