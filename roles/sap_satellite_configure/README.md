@@ -9,13 +9,14 @@ Requirements
 Role Variables
 --------------
 
-sap_content_rhel_release: "7.6"
-sap_content_architecture: "x86_64"
-sap_content_sat_username: "admin"
-sap_content_sat_password: ""
-sap_content_sat_url: "https://localhost"
-sap_content_sat_organization: "Default"
-sap_content_sat_subscription_name: "SKU"
+satellite_username: "admin"
+satellite_password: "admin"
+satellite_url: "https://localhost"
+
+sap_satellite_configure_rhel_release: "7.6"
+sap_satellite_configure_architecture: "x86_64"
+sap_satellite_configure_sat_organization: "Default"
+sap_satellite_configure_sat_subscription_name: "SKU"
 
 Dependencies
 ------------
