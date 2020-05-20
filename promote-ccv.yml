@@ -9,5 +9,5 @@
           - yaml
   roles:
     - role: sap_satellite_update
-      var:
+      vars:
         sap_satellite_update_promote: true
