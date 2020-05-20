@@ -1,6 +1,9 @@
 ---
-- include_tasks: update.yml
-  when: not sap_satellite_update_promote|bool
+# - include_tasks: update.yml
+#  when: not sap_satellite_update_promote|bool
+
+- debug:
+    msg: "sap_satellite_update_promote is set to {{ sap_satellite_update_promote }}"
 
 - include_tasks: promote.yml
   when: sap_satellite_update_promote|bool
