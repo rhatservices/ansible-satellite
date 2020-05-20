@@ -1,5 +1,5 @@
 ---
-- name: Promote {{ satellite_ccv_name }} from {{ sap_satellite_update_dest_environment }} to {{ sap_satellite_update_dest_environment }}
+- name: Promote {{ satellite_ccv_name }} from {{ sap_satellite_update_src_environment }} to {{ sap_satellite_update_dest_environment }}
   theforeman.foreman.katello_content_view_version:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
