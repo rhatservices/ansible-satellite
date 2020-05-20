@@ -1,0 +1,33 @@
+---
+- theforeman.foreman.foreman_search_facts:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    organization: "{{ satellite_organization }}"
+    validate_certs: false
+    resource: content_views
+    search: 'name="{{ satellite_ccv_name }}"'
+  register: result
+
+- debug:
+    msg: "found the following content views: {{ result }}"
+    verbosity: 1
+
+- name: Updating content views of {{ satellite_ccv_name }}
+  theforeman.foreman.katello_content_view_version:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    organization: "{{ satellite_organization }}"
+    validate_certs: false
+    content_view: "{{item.content_view.name}}"
+  loop: "{{ result.resources[0].components }}"
+
+- name: Update {{ satellite_ccv_name }}
+  theforeman.foreman.katello_content_view_version:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    organization: "{{ satellite_organization }}"
+    validate_certs: false
+    content_view: "{{ satellite_ccv_name }}"

@@ -1,2 +1,3 @@
 ---
 # defaults file for sap_satellite_update
+sap_satellite_update_promote: false

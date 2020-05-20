@@ -1,0 +1,12 @@
+---
+- name: Promote {{ satellite_ccv_name }} to {{ sap_satellite_update_dest_environment }}
+  theforeman.foreman.katello_content_view_version:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    organization: "{{ satellite_organization }}"
+    validate_certs: false
+    content_view: "{{ satellite_ccv_name }}"
+    current_lifecycle_environment: "{{ sap_satellite_update_dest_environment }}"
+    lifecycle_environments:
+      - "{{ sap_satellite_update_src_environment }}"
