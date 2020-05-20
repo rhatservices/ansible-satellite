@@ -8,14 +8,16 @@
     search: label="{{ satellite_ccv_name }}"
   register: result
 
+- debug:
+    msg: "found the following content views: {{ result }}"
+
 - theforeman.foreman.katello_content_view_version:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
-    name: "{{ satellite_organization }}"
+    organization: "{{ satellite_organization }}"
     validate_certs: false
     content_view: "{{item.content_view.name}}"
-    organization: "{{ satellite_organization }}"
   loop: "{{ result.resources[0].components }}"
 
 - theforeman.foreman.katello_content_view_version:
