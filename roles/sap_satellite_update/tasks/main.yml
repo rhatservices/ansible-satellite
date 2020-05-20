@@ -4,7 +4,6 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    name: "{{ satellite_organization }}"
     resource: content_views
     search: label="{{ satellite_ccv_name }}"
   register: result
