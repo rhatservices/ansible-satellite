@@ -98,14 +98,14 @@
       - Library
   when: cv_rhelsaphana.changed
 
-- name: "Create a composite content view for SAP Application hosts"
+- name: "Create a composite content view {{ sap_satellite_configure_ccv_name }}"
   katello_content_view:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_satellite_configure_sat_organization }}"
-    name: "CCV: SAP Applications"
+    name: "{{ sap_satellite_configure_ccv_name }}"
     composite: true
     auto_publish: false
     components:
@@ -115,49 +115,19 @@
         latest: true
       - content_view: "CV: RHEL for SAP Applications"
         latest: true
+      - content_view: "CV: RHEL for SAP HANA"
+        latest: true
   register: ccv_sapapp
 
-- name: "Publish an initial version of the SAP Applications composite content view"
+- name: "Publish an initial version of the {{sap_satellite_configure_ccv_name }} composite content view"
   katello_content_view_version:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ sap_satellite_configure_sat_organization }}"
-    content_view: "CCV: SAP Applications"
+    content_view: "{{ sap_satellite_configure_ccv_name }}"
     lifecycle_environments:
       - Library
       - TechLab
   when: ccv_sapapp.changed
-
-- name: "Create a composite content view for SAP HANA hosts"
-  katello_content_view:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
-    validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
-    name: "CCV: SAP HANA"
-    composite: true
-    auto_publish: false
-    components:
-      - content_view: "CV: RHEL Server"
-        latest: true
-      - content_view: "CV: RHEL High Availability"
-        latest: true
-      - content_view: "CV: RHEL for SAP HANA"
-        latest: true
-  register: ccv_saphana
-
-- name: "Publish an initial version of the SAP HANA composite content view"
-  katello_content_view_version:
-    username: "{{ satellite_username }}"
-    password: "{{ satellite_password }}"
-    server_url: "{{ satellite_url}}"
-    validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
-    content_view: "CCV: SAP HANA"
-    lifecycle_environments:
-      - Library
-      - TechLab
-  when: ccv_saphana.changed
