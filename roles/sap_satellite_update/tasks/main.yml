@@ -3,9 +3,10 @@
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
+    organization: "{{ satellite_organization }}"
     validate_certs: false
     resource: content_views
-    search: label="{{ satellite_ccv_name }}"
+    search: "label={{ satellite_ccv_name }}"
   register: result
 
 - debug:
