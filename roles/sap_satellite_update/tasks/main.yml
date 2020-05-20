@@ -11,8 +11,10 @@
 
 - debug:
     msg: "found the following content views: {{ result }}"
+    verbosity: 1
 
-- theforeman.foreman.katello_content_view_version:
+- name: Updating content views of {{ satellite_ccv_name }}
+  theforeman.foreman.katello_content_view_version:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
@@ -21,11 +23,11 @@
     content_view: "{{item.content_view.name}}"
   loop: "{{ result.resources[0].components }}"
 
-- theforeman.foreman.katello_content_view_version:
+- name: Update {{ satellite_ccv_name }}
+  theforeman.foreman.katello_content_view_version:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     organization: "{{ satellite_organization }}"
     validate_certs: false
     content_view: "{{ satellite_ccv_name }}"
-    lifecycle_environments: "{{ satellite_lifecycle_environments }}"
