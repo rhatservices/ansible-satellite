@@ -6,7 +6,7 @@
     validate_certs: false
     name: "{{ satellite_organization }}"
     resource: content_views
-    search: label="{{ satellite_ccv}}"
+    search: label="{{ satellite_ccv_name }}"
   register: result
 
 - theforeman.foreman.katello_content_view_version:
@@ -25,5 +25,5 @@
     server_url: "{{ satellite_url}}"
     organization: "{{ satellite_organization }}"
     validate_certs: false
-    content_view: "{{ satellite_ccv }}"
+    content_view: "{{ satellite_ccv_name }}"
     lifecycle_environments: "{{ satellite_lifecycle_environments }}"

@@ -4,7 +4,7 @@
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
-    name: "{{ sap_satellite_configure_sat_organization }}"
+    name: "{{ satellite_organization }}"
     state: present
     validate_certs: false
 
@@ -16,7 +16,7 @@
     validate_certs: false
     name: "{{ sap_satellite_configure_sat_location }}"
     organizations:
-      - "{{ sap_satellite_configure_sat_organization }}"
+      - "{{ satellite_organization }}"
     state: present
 
 - name: "Refresh manifest - this might fail, if yes upload manifest manually"
@@ -24,6 +24,6 @@
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     validate_certs: false
     state: refreshed

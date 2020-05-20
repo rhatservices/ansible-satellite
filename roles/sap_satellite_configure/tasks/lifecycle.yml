@@ -5,7 +5,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "TechLab"
     label: "techlab"
     prior: "Library"
@@ -18,7 +18,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "Sandbox"
     label: "Sandbox"
     prior: "TechLab"
@@ -31,7 +31,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "DEV"
     label: "dev"
     prior: "Sandbox"
@@ -44,7 +44,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "UAT"
     label: "uat"
     prior: "DEV"
@@ -57,7 +57,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "PROD"
     label: "prod"
     prior: "UAT"

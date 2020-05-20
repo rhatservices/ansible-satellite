@@ -15,7 +15,7 @@ satellite_url: "https://localhost"
 
 sap_satellite_configure_rhel_release: "7.6"
 sap_satellite_configure_architecture: "x86_64"
-sap_satellite_configure_sat_organization: "Default"
+satellite_organization: "Default"
 sap_satellite_configure_sat_subscription_name: "SKU"
 
 Dependencies

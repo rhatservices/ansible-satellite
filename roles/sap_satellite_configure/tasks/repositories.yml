@@ -5,7 +5,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     label: rhel-7-server-e4s-rpms
     repositories:
     - releasever: "{{ sap_satellite_configure_rhel_release }}"
@@ -18,7 +18,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     label: rhel-ha-for-rhel-7-server-e4s-rpms
     repositories:
     - releasever: "{{ sap_satellite_configure_rhel_release }}"
@@ -31,7 +31,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     label: rhel-sap-for-rhel-7-server-e4s-rpms
     repositories:
     - releasever: "{{ sap_satellite_configure_rhel_release }}"
@@ -44,7 +44,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     label: rhel-sap-hana-for-rhel-7-server-e4s-rpms
     repositories:
     - releasever: "{{ sap_satellite_configure_rhel_release }}"
@@ -57,7 +57,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "Weekly SAP RHEL Sync"
     interval: "weekly"
     enabled: false

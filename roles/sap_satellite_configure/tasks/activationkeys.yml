@@ -5,10 +5,10 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "SAP Applications"
     lifecycle_environment: "TechLab"
-    content_view: "{{ sap_satellite_configure_ccv_name }}"
+    content_view: "{{ satellite_ccv_name }}"
     subscriptions:
       - name: "{{ sap_satellite_configure_sat_subscription_name }}"
     content_overrides:
@@ -30,10 +30,10 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "SAP HANA"
     lifecycle_environment: "TechLab"
-    content_view: "{{ sap_satellite_configure_ccv_name }}"
+    content_view: "{{ satellite_ccv_name }}"
     subscriptions:
       - name: "{{ sap_satellite_configure_sat_subscription_name }}"
     content_overrides:

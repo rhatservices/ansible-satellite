@@ -4,7 +4,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "CV: RHEL Server"
     repositories:
       - name: 'Red Hat Enterprise Linux 7 Server - Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
@@ -17,7 +17,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     content_view: "CV: RHEL Server"
     lifecycle_environments:
       - Library
@@ -29,7 +29,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "CV: RHEL High Availability"
     repositories:
       - name: 'Red Hat Enterprise Linux High Availability for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
@@ -42,7 +42,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     content_view: "CV: RHEL High Availability"
     lifecycle_environments:
       - Library
@@ -54,7 +54,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "CV: RHEL for SAP Applications"
     repositories:
       - name: 'RHEL for SAP for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
@@ -67,7 +67,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     content_view: "CV: RHEL for SAP Applications"
     lifecycle_environments:
       - Library
@@ -79,7 +79,7 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     name: "CV: RHEL for SAP HANA"
     repositories:
       - name: 'RHEL for SAP HANA for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
@@ -92,20 +92,20 @@
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
+    organization: "{{ satellite_organization }}"
     content_view: "CV: RHEL for SAP HANA"
     lifecycle_environments:
       - Library
   when: cv_rhelsaphana.changed
 
-- name: "Create a composite content view {{ sap_satellite_configure_ccv_name }}"
+- name: "Create a composite content view {{ satellite_ccv_name }}"
   katello_content_view:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
-    name: "{{ sap_satellite_configure_ccv_name }}"
+    organization: "{{ satellite_organization }}"
+    name: "{{ satellite_ccv_name }}"
     composite: true
     auto_publish: false
     components:
@@ -119,14 +119,14 @@
         latest: true
   register: ccv_sapapp
 
-- name: "Publish an initial version of the {{sap_satellite_configure_ccv_name }} composite content view"
+- name: "Publish an initial version of the {{satellite_ccv_name }} composite content view"
   katello_content_view_version:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
-    organization: "{{ sap_satellite_configure_sat_organization }}"
-    content_view: "{{ sap_satellite_configure_ccv_name }}"
+    organization: "{{ satellite_organization }}"
+    content_view: "{{ satellite_ccv_name }}"
     lifecycle_environments:
       - Library
       - TechLab
