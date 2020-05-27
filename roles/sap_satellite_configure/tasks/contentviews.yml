@@ -5,7 +5,7 @@
     server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ satellite_organization }}"
-    name: "CV: RHEL Server"
+    name: "CV: RHEL for SAP Server"
     repositories:
       - name: 'Red Hat Enterprise Linux 7 Server - Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
         product: 'Red Hat Enterprise Linux Server - Update Services for SAP Solutions'
@@ -18,7 +18,7 @@
     server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ satellite_organization }}"
-    content_view: "CV: RHEL Server"
+    content_view: "CV: RHEL for SAP Server"
     lifecycle_environments:
       - Library
   when: cv_rhelserver.changed
@@ -30,7 +30,7 @@
     server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ satellite_organization }}"
-    name: "CV: RHEL High Availability"
+    name: "CV: RHEL for SAP High Availability"
     repositories:
       - name: 'Red Hat Enterprise Linux High Availability for RHEL 7 Server Update Services for SAP Solutions RPMs {{ sap_satellite_configure_architecture }} {{ sap_satellite_configure_rhel_release }}'
         product: 'Red Hat Enterprise Linux High Availability - Update Services for SAP Solutions'
@@ -43,7 +43,7 @@
     server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ satellite_organization }}"
-    content_view: "CV: RHEL High Availability"
+    content_view: "CV: RHEL for SAP High Availability"
     lifecycle_environments:
       - Library
   when: cv_rhelha.changed
@@ -109,9 +109,9 @@
     composite: true
     auto_publish: false
     components:
-      - content_view: "CV: RHEL Server"
+      - content_view: "CV: RHEL for SAP Server"
         latest: true
-      - content_view: "CV: RHEL High Availability"
+      - content_view: "CV: RHEL for SAP High Availability"
         latest: true
       - content_view: "CV: RHEL for SAP Applications"
         latest: true
