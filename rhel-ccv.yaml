@@ -1,0 +1,47 @@
+- hosts: localhost
+  tasks:
+  - name: include encrypted vars
+    include_vars:
+      dir: vault
+      extensions:
+        - yml
+        - yaml
+
+  - name: "Enable RHEL 8 base os "
+    theforeman.foreman.katello_repository_set:
+      username: "{{ satellite_username }}"
+      password: "{{ satellite_password }}"
+      server_url: "{{ satellite_url}}"
+      validate_certs: false
+      organization: "{{ satellite_organization }}"
+      label: rhel-8-for-x86_64-baseos-rpms
+      repositories:
+      - basearch: "{{ sap_satellite_configure_architecture }}"
+      state: enabled
+
+  - name: "Enable RHEL 8 appstream "
+    theforeman.foreman.katello_repository_set:
+      username: "{{ satellite_username }}"
+      password: "{{ satellite_password }}"
+      server_url: "{{ satellite_url}}"
+      validate_certs: false
+      organization: "{{ satellite_organization }}"
+      label: rhel-8-for-x86_64-appstream-rpms
+      repositories:
+      - basearch: "{{ sap_satellite_configure_architecture }}"
+      state: enabled
+
+- name: "Create or update RHEL 8 Server content view"
+  katello_content_view:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    name: "CV: RHEL 8"
+    repositories:
+      - name: 'Red Hat Enterprise Linux 8 for x86_64 - BaseOS RPMs 8'
+        product: 'Red Hat Enterprise Linux for x86_64'
+      - name: 'Red Hat Enterprise Linux 8 for x86_64 - AppStream RPMs 8'
+        product: 'Red Hat Enterprise Linux for x86_64'
+  register: cv_rhelserver
