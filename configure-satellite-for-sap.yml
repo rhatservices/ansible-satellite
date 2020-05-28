@@ -1,12 +1,12 @@
 - name: Configure Satellite
   hosts: localhost
   gather_facts: no
-  pre_tasks:
-    - name: include encrypted vars
-      include_vars:
-        dir: vault
-        extensions:
-          - yml
-          - yaml
+  # pre_tasks:
+  #   - name: include encrypted vars
+  #     include_vars:
+  #       dir: vault
+  #       extensions:
+  #         - yml
+  #         - yaml
   roles:
     - role: sap_satellite_configure
