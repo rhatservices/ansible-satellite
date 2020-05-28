@@ -40,3 +40,7 @@
     playbook: configure-satellite-for-sap.yml
     project: "Satellite: SAP Configuration"
     inventory: "Satellite: inventory"
+  register: result
+  until: result.changed == true
+  retries: 50
+  delay: 10
