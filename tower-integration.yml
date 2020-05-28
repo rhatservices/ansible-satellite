@@ -1,0 +1,5 @@
+---
+- name: integrate satellite playbook into tower
+  hosts: localhost
+  roles:
+    - role: tower_integration
