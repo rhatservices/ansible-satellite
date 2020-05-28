@@ -1,13 +1,42 @@
 ---
 - name: Create ansible-satellite tower project
   tower_project:
-    name: "Satellite Automation"
+    name: "Satellite: SAP Configuration"
     description: "Create necessary SAP content for Red Hat Satellite"
-    organization: "Zurich Insurance"
+    organization: "{{ tower_integration_organization }}"
     scm_url: "https://github.com/rhatservices/ansible-satellite.git"
     scm_type: "git"
     scm_update_on_launch: "yes"
     scm_update_cache_timeout: 60
     # scm_credential: "{{ item.1.scm_credential | default(omit) }}"
-    # scm_branch: "{{ item.1.scm_branch | default('master') }}"
+    scm_branch: master
     state: "present"
+    validate_certs: false
+
+- name: Create an inventory for the satellite host
+  tower_inventory:
+    name: "Satellite: inventory"
+    description: "Inventory that contains the required satellite system"
+    organization: "{{ tower_integration_organization }}"
+    state: "present"
+    validate_certs: false
+
+- name: Configure inventory source for satellite
+  tower_inventory_source:
+    name: "Satellite: inventory source"
+    inventory: "Satellite: inventory"
+    source: scm
+    source_project: "Satellite: SAP Configuration"
+    source_path: inventory/hosts
+    update_on_launch: true
+    overwrite: true
+    overwrite_vars: true
+    validate_certs: false
+
+- name: Create job template for Satellite configuration
+  tower_job_template:
+    name: "Satellite: SAP configuration"
+    job_type: run
+    playbook: configure-satellite-for-sap.yml
+    project: "Satellite: SAP Configuration"
+    inventory: "Satellite: inventory"
