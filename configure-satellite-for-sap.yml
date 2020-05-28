@@ -1,5 +1,6 @@
 - name: Configure Satellite
   hosts: localhost
+  gather_facts: no
   pre_tasks:
     - name: include encrypted vars
       include_vars:
