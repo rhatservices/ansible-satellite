@@ -11,4 +11,3 @@
     # scm_credential: "{{ item.1.scm_credential | default(omit) }}"
     # scm_branch: "{{ item.1.scm_branch | default('master') }}"
     state: "present"
-    custom_virtualenv: "omit"
