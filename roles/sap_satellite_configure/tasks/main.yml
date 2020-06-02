@@ -1,4 +1,12 @@
 ---
+- debug:
+    msg:
+      - "Configuring satellite at {{ satellite_url }}"
+      - "Satellite username: {{ satellite_username }}"
+      - "Satellite organization: {{ satellite_organization }}"
+      - "Satellite CCV: {{ satellite_ccv_name }}"
+      - "Satellite subscription: {{ sap_satellite_configure_sat_subscription_name }}"
+
 - import_tasks: organization.yml
 - import_tasks: repositories.yml
 - import_tasks: contentviews.yml
