@@ -4,7 +4,7 @@
     name: "Satellite: SAP Configuration"
     description: "Create necessary SAP content for Red Hat Satellite"
     organization: "{{ tower_integration_organization }}"
-    scm_url: "https://github.com/rhatservices/ansible-satellite.git"
+    scm_url: "{{ tower_integration_scm_url }}"
     scm_type: "git"
     scm_update_on_launch: "yes"
     scm_update_cache_timeout: 60
@@ -26,7 +26,7 @@
     name: "Satellite: inventory source"
     inventory: "Satellite: inventory"
     source: scm
-    source_project: "Satellite: SAP Configuration"
+    source_project: "Ansible: Inventory"
     source_path: inventory/hosts
     update_on_launch: true
     overwrite: true
