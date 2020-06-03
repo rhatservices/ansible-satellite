@@ -1,6 +1,6 @@
 ---
 - name: set http_proxy if defined
-  forman_setting:
+  foreman_setting:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
