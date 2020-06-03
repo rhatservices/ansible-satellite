@@ -12,7 +12,7 @@
     description: "The {{ item.name }} environment"
     state: "present"
   when: lifecycle_environments is defined
-  loop: {{ lifecycle_environments }}
+  loop: "{{ lifecycle_environments }}"
 
 
 # - name: "Add a TechLab lifecycle environment"
