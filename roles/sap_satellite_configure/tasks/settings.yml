@@ -1,0 +1,9 @@
+---
+- name: set http_proxy if defined
+  forman_setting:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    name: http_proxy
+    value: {{ sap_satellite_configure_http_proxy }}
+  when: sap_satellite_configure_http_proxy is defined

@@ -1,4 +1,5 @@
 ---
+- import_tasks: settings.yml
 - import_tasks: organization.yml
 - import_tasks: repositories.yml
 - import_tasks: contentviews.yml
