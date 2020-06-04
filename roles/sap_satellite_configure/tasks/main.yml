@@ -8,6 +8,7 @@
       - "Satellite CCV: {{ satellite_ccv_name }}"
       - "Satellite subscription: {{ sap_satellite_configure_sat_subscription_name }}"
 
+- import_tasks: settings.yml
 - import_tasks: organization.yml
 - import_tasks: repositories.yml
 - import_tasks: contentviews.yml

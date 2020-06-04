@@ -11,3 +11,15 @@
   #         - yaml
   roles:
     - role: sap_satellite_configure
+      vars:
+        lifecycle_environments:
+          - name: TechLab
+            prior: Library
+          - name: Sandbox
+            prior: TechLab
+          - name: DEV
+            prior: Sandbox
+          - name: UAT
+            prior: DEV
+          - name: PROD
+            prior: UAT

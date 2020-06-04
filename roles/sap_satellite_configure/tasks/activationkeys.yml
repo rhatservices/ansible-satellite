@@ -1,13 +1,13 @@
 ---
-- name: "Create activation key SAP Application clients"
+- name: "Create activation key SAP Application {{ item.name }} clients"
   katello_activation_key:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ satellite_organization }}"
-    name: "SAP Applications"
-    lifecycle_environment: "TechLab"
+    name: "SAP Applications {{ item.name }}"
+    lifecycle_environment: "{{ item.name }}"
     content_view: "{{ satellite_ccv_name }}"
     subscriptions:
       - name: "{{ sap_satellite_configure_sat_subscription_name }}"
@@ -22,17 +22,18 @@
           override: disabled
     auto_attach: False
     release_version: "7.6"
+  when: lifecycle_environments is defined
+  loop: "{{ lifecycle_environments }}"
 
-
-- name: "Create activation key SAP HANA clients"
+- name: "Create activation key SAP HANA {{ item.name }} clients"
   katello_activation_key:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
     server_url: "{{ satellite_url}}"
     validate_certs: false
     organization: "{{ satellite_organization }}"
-    name: "SAP HANA"
-    lifecycle_environment: "TechLab"
+    name: "SAP HANA {{ item.name }}"
+    lifecycle_environment: "{{ item.name }}"
     content_view: "{{ satellite_ccv_name }}"
     subscriptions:
       - name: "{{ sap_satellite_configure_sat_subscription_name }}"
@@ -47,3 +48,5 @@
           override: disabled
     auto_attach: False
     release_version: "7.6"
+  when: lifecycle_environments is defined
+  loop: "{{ lifecycle_environments }}"
