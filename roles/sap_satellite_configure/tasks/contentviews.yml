@@ -129,5 +129,17 @@
     content_view: "{{ satellite_ccv_name }}"
     lifecycle_environments:
       - Library
-      - TechLab
   when: ccv_sapapp.changed
+
+- name: "Publish an initial version of the {{satellite_ccv_name }} composite content view to {{ item.name }}"
+  katello_content_view_version:
+    username: "{{ satellite_username }}"
+    password: "{{ satellite_password }}"
+    server_url: "{{ satellite_url}}"
+    validate_certs: false
+    organization: "{{ satellite_organization }}"
+    content_view: "{{ satellite_ccv_name }}"
+    lifecycle_environments:
+      - {{ item.name }}
+  when: ccv_sapapp.changed
+  loop: "{{ lifecycle_environments }}"
