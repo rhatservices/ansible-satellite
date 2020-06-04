@@ -119,7 +119,7 @@
         latest: true
   register: ccv_sapapp
 
-- name: "Publish an initial version of the {{satellite_ccv_name }} composite content view"
+- name: "Publish an initial version of the {{satellite_ccv_name }} composite content view to Library"
   katello_content_view_version:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
@@ -131,7 +131,7 @@
       - Library
   when: ccv_sapapp.changed
 
-- name: "Publish an initial version of the {{satellite_ccv_name }} composite content view to {{ item.name }}"
+- name: "Promote Library version to all lifecycle environments"
   katello_content_view_version:
     username: "{{ satellite_username }}"
     password: "{{ satellite_password }}"
@@ -139,7 +139,8 @@
     validate_certs: false
     organization: "{{ satellite_organization }}"
     content_view: "{{ satellite_ccv_name }}"
+    current_lifecycle_environment: Library
+    force_promote: yes
     lifecycle_environments:
       - {{ item.name }}
-  when: ccv_sapapp.changed
   loop: "{{ lifecycle_environments }}"
