@@ -142,5 +142,5 @@
     current_lifecycle_environment: Library
     force_promote: yes
     lifecycle_environments:
-      - {{ item.name }}
+      - "{{ item.name }}"
   loop: "{{ lifecycle_environments }}"
