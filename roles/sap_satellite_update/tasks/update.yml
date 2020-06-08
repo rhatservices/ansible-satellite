@@ -13,6 +13,11 @@
     msg: "found the following content views: {{ result }}"
     verbosity: 1
 
+- name: fail if no content views where found
+  fail:
+    msg: "No content views found in {{ satellite_ccv_name }}"
+  when: result.resources|length < 1
+
 - name: Updating content views of {{ satellite_ccv_name }}
   theforeman.foreman.katello_content_view_version:
     username: "{{ satellite_username }}"
