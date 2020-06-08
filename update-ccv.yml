@@ -1,11 +1,5 @@
 - name: Update CCV {{ satellite_ccv}} and all CVs
   hosts: localhost
-  pre_tasks:
-    - name: include encrypted vars
-      include_vars:
-        dir: vault
-        extensions:
-          - yml
-          - yaml
+  become: false
   roles:
     - role: sap_satellite_update
