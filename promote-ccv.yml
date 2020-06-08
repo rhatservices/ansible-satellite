@@ -1,12 +1,5 @@
 - name: promote CCV {{ satellite_ccv}} to {{ sap_satellite_update_dest_environment }}
   hosts: localhost
-  pre_tasks:
-    - name: include encrypted vars
-      include_vars:
-        dir: vault
-        extensions:
-          - yml
-          - yaml
   roles:
     - role: sap_satellite_update
       vars:
