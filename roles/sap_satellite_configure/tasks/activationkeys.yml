@@ -19,7 +19,7 @@
         - label: rhel-sap-for-rhel-7-server-e4s-rpms
           override: enabled
         - label: rhel-sap-hana-for-rhel-7-server-e4s-rpms
-          override: disabled
+          override: enabled
     auto_attach: False
     release_version: "7.6"
   when: lifecycle_environments is defined
@@ -45,7 +45,7 @@
         - label: rhel-sap-hana-for-rhel-7-server-e4s-rpms
           override: enabled
         - label: rhel-sap-for-rhel-7-server-e4s-rpms
-          override: disabled
+          override: enabled
     auto_attach: False
     release_version: "7.6"
   when: lifecycle_environments is defined
