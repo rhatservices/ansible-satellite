@@ -8,5 +8,6 @@
     validate_certs: false
     content_view: "{{ satellite_ccv_name }}"
     current_lifecycle_environment: "{{ sap_satellite_update_src_environment }}"
+    force_promote: yes
     lifecycle_environments:
       - "{{ sap_satellite_update_dest_environment }}"
