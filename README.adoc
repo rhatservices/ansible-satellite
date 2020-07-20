@@ -1,0 +1,78 @@
+= ansible-satellite
+
+This repository includes Ansible playbooks and roles for configuring a Red Hat satellite system.
+Currently it's mainly used to configure satellite for supporting SAP on RHEL workflows
+
+== Included roles
+
+- _sap_satellite_configure_: Configure a newly install satellite system for SAP usage
+- _sap_satellite_update_: Update and/or promote a given composite content view and all component content views
+- _tower_integration_: Integrate _sap_satellite_configure_ into a given Ansible Tower instance
+
+== Role: sap_satellite_configure
+
+This role creates the following Satellite objects to further automate the deployment and patching of hosts running SAP:
+
+* Configure a global http proxy if _sap_satellite_configure_http_proxy_ is defined
+* Creates a Satellite organization
+* Creates required repositories to configure hosts running SAP. For example for RHEL 7 these currently are
+** rhel-7-server-e4s-rpms
+** rhel-ha-for-rhel-7-server-e4s-rpms
+** rhel-sap-for-rhel-7-server-e4s-rpms
+** rhel-sap-hana-for-rhel-7-server-e4s-rpms
+* Creates a weekly sync plan for the repositories mentioned above
+* Creates and publishes an initial version of Satellite content views for managing the repositories above, these are
+** CV: RHEL for SAP Server
+** CV: RHEL for SAP High Availability
+** CV: RHEL for SAP Applications
+** CV: RHEL for SAP HANA
+* A composite content view
+* Creates lifecycle environments defined in the list _lifecycle_environments_
+* For every lifecycle environment defined creates a corresponding activation key
+
+=== Variables
+
+*  _sap_satellite_configure_rhel_release_: The RHEL Release to use for SAP (default 7.6)
+*  _sap_satellite_configure_architeture_: RHEL architecture (default x86_64)
+*  _sap_satellite_sat_subscription_name_: The name of the subscription to use (default SKU)
+
+== Role sap_satellite_update
+
+This role updates and promotes the composite content view defined via the variable _satellite_ccv_name_ (see <<Variables shared between all roles>>).
+
+The role implements the following workflow
+
+1. We would like to create a new version of the composite content view defined in _satellite_ccv_name.
+2. We use the role with _sap_satellite_update_promote_ set to false to create a new version in the lifecycle environment *Library*
+3. Now we can promote the new version from the lifecycle environment *Library* to for example *DEV* by setting
+   - _sap_satellite_update_promote_ to _true_
+   - _sap_satellite_update_src_environment_ to _Library_
+   - _sap_satellite_update_dest_environment_ to _DEV_
+
+=== Variables
+
+- _sap_satellite_update_promote_: When true update the CCV defined via _satellite_ccv_name_ and all content views within the CCV. If false promote the CCV in lifecycle environment _sap_satellite_update_dest_environment_ to the version of _sap_satellite_update_src_environment_
+- _sap_satellite_update_src_environment_: Take the version of this environment and promote _sap_satellite_update_dest_environment_ to this version.
+- _sap_satellite_update_dest_environment_: The environment we would like to update to the version defined in _sap_satellite_update_src_environment.
+
+== Variables shared between all roles
+- _lifecycle_environments_: contains a list of Satellite lifecycle environments to create
++
+e.g.
++
+[source,ansible]
+----------
+        lifecycle_environments:
+          - name: DEV
+            prior: Library
+          - name: UAT
+            prior: DEV
+          - name: PROD
+            prior: UAT
+----------
++
+- _satellite_username_: Username for connecting to Satellite (default: admin)
+- _satellite_password_: Password for connecting to Satellite (default: admin)
+- _satellite_url_: Satellite URL (default: http://localhost)
+- _satellite_organization_: Organization for creating content views (default: Default)
+- _satellite_ccv_name_: Name of the Composite Content View to create (default: CCV: RHEL for SAP)
