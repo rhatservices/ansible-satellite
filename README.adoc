@@ -1,7 +1,8 @@
 = ansible-satellite
 
-This repository includes Ansible playbooks and roles for configuring a Red Hat satellite system.
-Currently it's mainly used to configure satellite for supporting SAP on RHEL workflows
+This repository includes Ansible playbooks and roles for configuring a
+Red Hat satellite system.  Currently it's mainly used to configure
+Satellite for supporting SAP on RHEL workflows
 
 == Playbooks
 
@@ -11,7 +12,7 @@ This playbook uses the role _sap_satellite_configure_ to configure the Satellite
 
 === update-ccv
 
-This playbook uses the role _sap_satellite_update_ for updating the given _satellite_ccv_. It update the composite content view and all content views that are a part of the composite content view.
+This playbook uses the role _sap_satellite_update_ for updating the given _satellite_ccv_. It updates the composite content view and all content views that are a part of the composite content view.
 
 ==== Required variables
 
