@@ -56,7 +56,7 @@ This role creates the following Satellite objects to further automate the deploy
 === Variables
 
 *  _sap_satellite_configure_rhel_release_: The RHEL Release to use for SAP (default 7.6)
-*  _sap_satellite_configure_architeture_: RHEL architecture (default x86_64)
+*  _sap_satellite_configure_architecture_: RHEL architecture (default x86_64)
 *  _sap_satellite_sat_subscription_name_: The name of the subscription to use (default SKU)
 
 == Role sap_satellite_update
